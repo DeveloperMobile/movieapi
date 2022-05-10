@@ -34,6 +34,13 @@ public class MovieService {
         return MovieMapper.INSTANCE.toDTO(movie);
     }
 
+    public MessageResponseDTO updateById(Long id, MovieDTO movieDTO) throws MovieNotFoundException {
+        verifyIfExists(id);
+        Movie movieToUpdate = MovieMapper.INSTANCE.toModel(movieDTO);
+        Movie updateMovie = repository.save(movieToUpdate);
+        return createMessageResponse(updateMovie.getId(), "Update Person with ID ");
+    }
+
     public void deleteById(Long id) throws MovieNotFoundException {
         verifyIfExists(id);
         repository.deleteById(id);
