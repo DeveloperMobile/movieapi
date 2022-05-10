@@ -24,11 +24,11 @@ http://localhost:8080/api/v1/movie
 
 Ou visualizar no heroku
 
-...
+```
 https://mmovie-api.herokuapp.com/api/v1/movie
-...
+```
 
-São necessários os seguintes pré-requisitos para a execução do projeto desenvolvido durante a aula:
+São necessários os seguintes pré-requisitos para a execução do projeto:
 
 * Java 11 ou versões superiores.
 * Maven 3.6.3 ou versões superiores.
