@@ -29,6 +29,16 @@ public class MovieService {
                 .collect(Collectors.toList());
     }
 
+    public MovieDTO findById(Long id) throws MovieNotFoundException {
+        Movie movie = verifyIfExists(id);
+        return MovieMapper.INSTANCE.toDTO(movie);
+    }
+
+    private Movie verifyIfExists(Long id) throws MovieNotFoundException {
+        return repository.findById(id)
+                .orElseThrow(() -> new MovieNotFoundException(id));
+    }
+
     private MessageResponseDTO createMessageResponse(Long id , String message) {
         return MessageResponseDTO
                 .builder()

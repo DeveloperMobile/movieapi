@@ -26,4 +26,9 @@ public class MovieController {
     public List<MovieDTO> findAll() {
         return service.findAll();
     }
+
+    @GetMapping("/{id}")
+    public MovieDTO findById(@PathVariable Long id) throws MovieNotFoundException {
+        return service.findById(id);
+    }
 }
