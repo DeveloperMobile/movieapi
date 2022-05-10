@@ -20,7 +20,7 @@ public class MovieService {
     public MessageResponseDTO createMovie(MovieDTO movieDTO) {
         Movie movieToSave = MovieMapper.INSTANCE.toModel(movieDTO);
         Movie savedMovie = repository.save(movieToSave);
-        return createMessageResponse(savedMovie.getId(), "Created person with ID ");
+        return createMessageResponse(savedMovie.getId(), "Created movie with ID ");
     }
 
     public List<MovieDTO> findAll() {
