@@ -34,6 +34,11 @@ public class MovieService {
         return MovieMapper.INSTANCE.toDTO(movie);
     }
 
+    public void deleteById(Long id) throws MovieNotFoundException {
+        verifyIfExists(id);
+        repository.deleteById(id);
+    }
+
     private Movie verifyIfExists(Long id) throws MovieNotFoundException {
         return repository.findById(id)
                 .orElseThrow(() -> new MovieNotFoundException(id));

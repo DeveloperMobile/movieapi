@@ -31,4 +31,10 @@ public class MovieController {
     public MovieDTO findById(@PathVariable Long id) throws MovieNotFoundException {
         return service.findById(id);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws MovieNotFoundException {
+        service.deleteById(id);
+    }
 }
